@@ -11,7 +11,7 @@ Very Important:100 \n ''')
 st.header('NAME')
 name=st.text_input('Name of the client:')
 
-st.image('/Users/sonalchhabra/Documents/riskanalysis web app/493.png')
+
 
 st.header('AGE')
 age=st.number_input(' Age of the client :',0)
