@@ -11,6 +11,8 @@ Very Important:100 \n ''')
 st.header('NAME')
 name=st.text_input('Name of the client:')
 
+st.image('/Users/sonalchhabra/Documents/riskanalysis web app/493.png')
+
 st.header('AGE')
 age=st.number_input(' Age of the client :',0)
 if age<30:
@@ -26,12 +28,23 @@ st.header('HORIZON')
 horizon=st.number_input('Investment Horizon of the client')
 if horizon<5:
   risk2=10
-elif horizon<10:
+elif horizon<15:
   risk2=20
-elif horizon>=10:
+elif horizon>=15:
   risk2=30
 weightage_horizon=st.radio('How important is time horizon as a factor?', (10,50,100), index=0, key=int)
 horizonn=risk2*(weightage_horizon)
+
+st.header('INITIAL CAPITAL')
+horizon=st.number_input('Initial capital provided to us (in USD) ')
+if horizon<50000:
+  risk7=10
+elif horizon<=150000:
+  risk7=20
+elif horizon>150000:
+  risk7=30
+weightage_cap=st.radio('How important is initial capital as a factor?', (10,50,100), index=0, key=int)
+capp=risk7*(weightage_cap)
 
 
 st.header('GOALS')
@@ -87,10 +100,10 @@ weightage_ls=st.radio('How important is loss mitigation a factor?',(10,50,100), 
 
 loss_r=risk6*(weightage_ls)
 
-total_conse=((weightage_age)*10)+((weightage_goals)*10)+((weightage_horizon)*10)+((weightage_si)*10)+((weightage_ls))*10+((weightage_rwm)*10)
-total_moder=((weightage_age)*20)+((weightage_goals)*20)+((weightage_horizon)*20)+((weightage_si)*20)+((weightage_ls))*20+((weightage_rwm)*20)
-total_aggre=((weightage_age)*30)+((weightage_goals)*30)+((weightage_horizon)*30)+((weightage_si)*30)+((weightage_ls))*30+((weightage_rwm)*30)
-total=agee+horizonn+goalss+risk_associated_w_mkt+stable_incomee+loss_r
+total_conse=((weightage_cap)*10)+((weightage_age)*10)+((weightage_goals)*10)+((weightage_horizon)*10)+((weightage_si)*10)+((weightage_ls)*10)+((weightage_rwm)*10)
+total_moder=((weightage_cap)*20)+((weightage_age)*20)+((weightage_goals)*20)+((weightage_horizon)*20)+((weightage_si)*20)+((weightage_ls)*20)+((weightage_rwm)*20)
+total_aggre=((weightage_cap)*30)+((weightage_age)*30)+((weightage_goals)*30)+((weightage_horizon)*30)+((weightage_si)*30)+((weightage_ls)*30)+((weightage_rwm)*30)
+total=agee+horizonn+goalss+risk_associated_w_mkt+stable_incomee+loss_r+capp
 total_modag=(((total_aggre-total_moder)/2)+total_moder)
 total_cc=total_conse+((total_aggre-total_conse)/5)
 total_cm=total_cc+((total_aggre-total_conse)/5)
