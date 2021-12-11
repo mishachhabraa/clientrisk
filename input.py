@@ -25,7 +25,7 @@ weightage_age=st.radio('How important is age as a factor?', (10,50,100), index=0
 agee=risk1*(weightage_age)
 
 st.header('HORIZON')
-horizon=st.number_input('Investment Horizon of the client')
+horizon=st.number_input('Investment Horizon of the client:')
 if horizon<5:
   risk2=10
 elif horizon<15:
