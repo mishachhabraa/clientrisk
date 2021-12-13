@@ -25,7 +25,7 @@ weightage_age=st.radio('How important is age as a factor?', (10,50,100), index=0
 agee=risk1*(weightage_age)
 
 st.header('HORIZON')
-horizon=st.number_input('Investment Horizon of the client:')
+horizon=st.number_input('what is the investment horizon of the client?:')
 if horizon<5:
   risk2=10
 elif horizon<15:
@@ -48,7 +48,7 @@ capp=risk7*(weightage_cap)
 
 
 st.header('GOALS')
-goals=st.radio('How flexible are goals of client?',('not flexible','somewhat flexible','very flexible'), index=0,  key=int)
+goals=st.radio('How flexible are goals of the client?',('not flexible','somewhat flexible','very flexible'), index=0,  key=int)
 if goals=='not flexible':
   risk3=10
 elif goals=='somewhat flexible':
